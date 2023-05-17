@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884380D12A152016009B786C /* FlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884380D02A152016009B786C /* FlowTest.swift */; };
+		884380D32A152222009B786C /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884380D22A152222009B786C /* Flow.swift */; };
 		88FBE9662A151D740088F541 /* QuizforEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 88FBE9652A151D740088F541 /* QuizforEngine.docc */; };
 		88FBE96C2A151D740088F541 /* QuizforEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FBE9612A151D740088F541 /* QuizforEngine.framework */; };
-		88FBE9712A151D740088F541 /* QuizforEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FBE9702A151D740088F541 /* QuizforEngineTests.swift */; };
-		88FBE9722A151D740088F541 /* QuizforEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FBE9642A151D740088F541 /* QuizforEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		884380D02A152016009B786C /* FlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTest.swift; sourceTree = "<group>"; };
+		884380D22A152222009B786C /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		88FBE9612A151D740088F541 /* QuizforEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizforEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88FBE9642A151D740088F541 /* QuizforEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizforEngine.h; sourceTree = "<group>"; };
 		88FBE9652A151D740088F541 /* QuizforEngine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = QuizforEngine.docc; sourceTree = "<group>"; };
 		88FBE96B2A151D740088F541 /* QuizforEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizforEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88FBE9702A151D740088F541 /* QuizforEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizforEngineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +71,8 @@
 		88FBE9632A151D740088F541 /* QuizforEngine */ = {
 			isa = PBXGroup;
 			children = (
-				88FBE9642A151D740088F541 /* QuizforEngine.h */,
 				88FBE9652A151D740088F541 /* QuizforEngine.docc */,
+				884380D22A152222009B786C /* Flow.swift */,
 			);
 			path = QuizforEngine;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 		88FBE96F2A151D740088F541 /* QuizforEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				88FBE9702A151D740088F541 /* QuizforEngineTests.swift */,
+				884380D02A152016009B786C /* FlowTest.swift */,
 			);
 			path = QuizforEngineTests;
 			sourceTree = "<group>";
@@ -92,7 +92,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88FBE9722A151D740088F541 /* QuizforEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +149,7 @@
 					};
 					88FBE96A2A151D740088F541 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -195,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FBE9662A151D740088F541 /* QuizforEngine.docc in Sources */,
+				884380D32A152222009B786C /* Flow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88FBE9712A151D740088F541 /* QuizforEngineTests.swift in Sources */,
+				884380D12A152016009B786C /* FlowTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,14 +396,22 @@
 		88FBE9792A151D740088F541 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56U6P9HNQ5;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mithfor.QuizforEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -410,10 +419,17 @@
 		88FBE97A2A151D740088F541 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 56U6P9HNQ5;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mithfor.QuizforEngineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
