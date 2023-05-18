@@ -31,14 +31,11 @@ final class Flow {
         } else {
             router.routeTo(result: result)
         }
+        
     }
     
     private func nextCallback(from question: String) -> (Router.AnswerCallback) {
-        return { [weak self] answer in
-            guard let self = self else {return}
-            self.routeNext(question,
-                      answer)
-        }
+        return { [weak self] in self?.routeNext(question, $0) }
     }
     
     private func routeNext(_ question: String, _ answer: String) {
@@ -49,9 +46,9 @@ final class Flow {
                 let nextQuestion = questions[nextQuestionIndex]
                 
                 router.routeTo(question: nextQuestion, answerCallback: nextCallback(from: nextQuestion))
+            } else {
+                router.routeTo(result: result)
             }
-            
-            router.routeTo(result: result)
         }
     }
 }
