@@ -56,24 +56,3 @@ final class Flow<Question: Hashable, Answer, R: Router> where R.Question == Ques
     }
 }
 
-//public func startGame<Question: Hashable, Answer: Equatable>(questions: [Question], router: Router, correctAnswers: [Question: Answer]) {
-//
-//}
-
-//enum Answer <T> {
-//    case correct(T)
-//    case incorrect(T)
-//}
-//
-//protocol Answer {
-//    var isCorrect: Bool { get }
-//}
-//
-//struct StringAnswer {
-//    let answer: String
-//    let isCorrect: Bool
-//}
-//
-//struct Question {
-//    let isMultipleAnswer: Bool
-//}
