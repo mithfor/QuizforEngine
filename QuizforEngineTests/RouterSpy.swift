@@ -11,7 +11,7 @@ import QuizforEngine
 class RouterSpy: Router {
 
     var routedQuestions: [String] = []
-    var routedResult: Result<String, String>? = nil
+    var routedResult: QuizResult<String, String>? = nil
     var answerCallback: ((String) -> Void) = { _ in }
 
     func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
@@ -19,7 +19,7 @@ class RouterSpy: Router {
         self.answerCallback = answerCallback
     }
 
-    func routeTo(result: Result<String, String>) {
+    func routeTo(result: QuizResult<String, String>) {
         routedResult = result
     }
 }
