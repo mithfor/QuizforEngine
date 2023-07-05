@@ -26,6 +26,8 @@
 		D35EFB6D2A4E0F9400551028 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35EFB1D2A4DF21F00551028 /* QuizResult.swift */; };
 		D3AA72AB2A55BCD100502424 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AA2A55BCD100502424 /* Question.swift */; };
 		D3AA72AD2A55BCDB00502424 /* QuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AC2A55BCDB00502424 /* QuestionTest.swift */; };
+		D3AA72B12A55CE8800502424 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AA2A55BCD100502424 /* Question.swift */; };
+		D3AA72B22A55CE9200502424 /* QuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AC2A55BCDB00502424 /* QuestionTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AA72B12A55CE8800502424 /* Question.swift in Sources */,
 				D35EFB6C2A4E0F9400551028 /* Flow.swift in Sources */,
 				D35EFB6B2A4E0F9400551028 /* Router.swift in Sources */,
 				D35EFB6D2A4E0F9400551028 /* QuizResult.swift in Sources */,
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AA72B22A55CE9200502424 /* QuestionTest.swift in Sources */,
 				D35EFB672A4E0F8C00551028 /* GameTest.swift in Sources */,
 				D35EFB682A4E0F8C00551028 /* FlowTest.swift in Sources */,
 				D35EFB692A4E0F8C00551028 /* RouterSpy.swift in Sources */,
