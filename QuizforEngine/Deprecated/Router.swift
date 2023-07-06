@@ -16,5 +16,5 @@ public protocol Router {
 
     typealias AnswerCallback = (Answer) -> Void
     func routeTo(question: Question, answerCallback: @escaping AnswerCallback)
-    func routeTo(result: QuizResult<Question, Answer>)
+    func routeTo(result: Result<Question, Answer>)
 }

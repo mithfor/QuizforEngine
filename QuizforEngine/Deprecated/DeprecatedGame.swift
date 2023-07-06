@@ -40,7 +40,7 @@ private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate {
         router.routeTo(question: question, answerCallback: answerCallback)
     }
 
-    func handle(result: QuizResult<R.Question, R.Answer>) {
+    func handle(result: Result<R.Question, R.Answer>) {
         router.routeTo(result: result)
     }
 }

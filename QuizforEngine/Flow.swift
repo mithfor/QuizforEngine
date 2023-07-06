@@ -51,8 +51,8 @@ final class Flow<Delegate: QuizDelegate>{
         }
     }
 
-    private func result() -> QuizResult<Question, Answer> {
-        return QuizResult(answers: answers, score: scoring(answers))
+    private func result() -> Result<Question, Answer> {
+        return Result(answers: answers, score: scoring(answers))
     }
 }
 

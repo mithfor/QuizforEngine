@@ -12,5 +12,5 @@ public protocol QuizDelegate {
     associatedtype Answer
 
     func handle(question: Question, answerCallback: @escaping (Answer) -> Void)
-    func handle(result: QuizResult<Question, Answer>)
+    func handle(result: Result<Question, Answer>)
 }
