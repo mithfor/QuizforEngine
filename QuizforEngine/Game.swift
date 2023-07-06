@@ -15,6 +15,7 @@ public class Game <Question: Hashable, Answer, R: Router> where R.Question == Qu
     }
 }
 
+@available(*, deprecated)
 public func startGame<Question: Hashable,
                       Answer: Equatable,
                       R: Router>(questions: [Question],
