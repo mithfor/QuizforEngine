@@ -118,11 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				88FBE9652A151D740088F541 /* QuizforEngine.docc */,
-				D35EFB212A4DF4E100551028 /* DeprecatedGame.swift */,
+				D3CF79332A56E7B100D02C35 /* Deprecated */,
 				884380D22A152222009B786C /* Flow.swift */,
 				D3AA72AA2A55BCD100502424 /* Question.swift */,
 				D35EFB1D2A4DF21F00551028 /* QuizResult.swift */,
-				D35EFB1B2A4DF1FB00551028 /* Router.swift */,
 				D3CF79312A56E74900D02C35 /* QuizDelegate.swift */,
 			);
 			path = QuizforEngine;
@@ -135,6 +134,15 @@
 				D3CF792D2A56E5A400D02C35 /* DeprecatedGameTest.swift */,
 			);
 			path = QuizforEngineTests;
+			sourceTree = "<group>";
+		};
+		D3CF79332A56E7B100D02C35 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				D35EFB212A4DF4E100551028 /* DeprecatedGame.swift */,
+				D35EFB1B2A4DF1FB00551028 /* Router.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
