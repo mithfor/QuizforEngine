@@ -124,7 +124,7 @@ class FlowTest: XCTestCase
 
     private let delegate = DelegateSpy()
 
-    private weak var weakSUT: Flow<String, String, DelegateSpy>?
+    private weak var weakSUT: Flow<DelegateSpy>?
 
     override func tearDown() {
         super.tearDown()
@@ -133,14 +133,14 @@ class FlowTest: XCTestCase
     }
     
     private func makeSUT(questions: [String],
-                 scoring: @escaping ([String: String]) -> Int = { _ in 0 }) -> Flow<String, String, DelegateSpy>{
+                 scoring: @escaping ([String: String]) -> Int = { _ in 0 }) -> Flow<DelegateSpy>{
         let sut = Flow(questions: questions,
-                    router: delegate, scoring: scoring)
+                    delegate: delegate, scoring: scoring)
         weakSUT = sut
         return sut
     }
 
-    private class DelegateSpy: Router, QuizDelegate {
+    private class DelegateSpy: QuizDelegate {
 
         var handledQuestions: [String] = []
         var handledResult: QuizResult<String, String>? = nil
@@ -153,14 +153,6 @@ class FlowTest: XCTestCase
 
         func handle(result: QuizforEngine.QuizResult<String, String>) {
             handledResult = result
-        }
-
-        func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
-            handle(question: question, answerCallback: answerCallback)
-        }
-
-        func routeTo(result: QuizResult<String, String>) {
-            handle(result: result)
         }
     }
 }

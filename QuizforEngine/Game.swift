@@ -8,10 +8,10 @@
 import Foundation
 
 @available(*, deprecated)
-public class Game <Question, Answer, R: Router> where R.Question == Question, R.Answer ==  Answer {
-    let flow: Flow<Question, Answer, R>
+public class Game <Delegate: QuizDelegate>{
+    let flow: Flow<Delegate>
 
-    init(flow: Flow<Question, Answer, R>) {
+    init(flow: Flow<Delegate>) {
         self.flow = flow
     }
 }
@@ -19,11 +19,10 @@ public class Game <Question, Answer, R: Router> where R.Question == Question, R.
 @available(*, deprecated)
 public func startGame<Question: Hashable,
                       Answer: Equatable,
-                      R: Router>(questions: [Question],
-                                 router: R,
-                                 correctAnswers: [Question: Answer]) -> Game<Question, Answer, R> where R.Question == Question, R.Answer ==  Answer {
-    let flow = Flow(questions: questions,
-                    router: router, scoring: { scoring($0, correctAnswers: correctAnswers) })
+                      Delegate: QuizDelegate>(questions: [Question],
+                                 delegate: Delegate,
+                                 correctAnswers: [Question: Answer]) -> Game<Delegate> where Delegate.Question == Question, Delegate.Answer ==  Answer {
+    let flow = Flow(questions: questions, delegate: delegate, scoring: { scoring($0, correctAnswers: correctAnswers) })
     flow.start()
     return Game(flow: flow)
 }
