@@ -11,32 +11,35 @@ import XCTest
 
 class QuestionTest: XCTestCase {
 
-    func test_hashValue_singleAnswer_returnsTypeHash() {
+    func test_withSameWrappedValue_isDifferentForSingleAndMultipleAnswer() {
+        let aValue = UUID()
 
-        let type = "a string"
-        let sut = Question.singleAnswer(type)
-
-        XCTAssertEqual(sut.hashValue, type.hashValue)
+        XCTAssertNotEqual(Question.singleAnswer(aValue).hashValue,
+                          Question.multipleAnswer(aValue).hashValue)
     }
 
-    func test_hashValue_multipleAnswer_returnsTypeHash() {
+    func test_hashValue_forSingleAnswer_returnsTypeHash() {
 
-        let type = "a string"
-        let sut = Question.multipleAnswer(type)
+        let aValue = UUID()
+        let anotherValue = UUID()
 
-        XCTAssertEqual(sut.hashValue, type.hashValue)
+        XCTAssertEqual(Question.singleAnswer(aValue).hashValue,
+                       Question.singleAnswer(aValue).hashValue)
+
+        XCTAssertNotEqual(Question.singleAnswer(aValue).hashValue,
+                       Question.singleAnswer(anotherValue).hashValue)
+
     }
 
-    func test_equal_isEqual() {
-        XCTAssertEqual(Question.singleAnswer("a string"), Question.singleAnswer("a string"))
-        XCTAssertEqual(Question.multipleAnswer("a string"), Question.multipleAnswer("a string"))
-    }
+    func test_hashValue_forMultipleAnswer() {
 
-    func test_notEqual_isNotEqual() {
-        XCTAssertNotEqual(Question.singleAnswer("a string"), Question.singleAnswer("another string"))
-        XCTAssertNotEqual(Question.multipleAnswer("a string"), Question.multipleAnswer("another string"))
+        let aValue = UUID()
+        let anotherValue = UUID()
 
-        XCTAssertNotEqual(Question.singleAnswer("a string"), Question.multipleAnswer("another string"))
-        XCTAssertNotEqual(Question.singleAnswer("a string"), Question.multipleAnswer("a string"))
+        XCTAssertEqual(Question.multipleAnswer(aValue).hashValue,
+                       Question.multipleAnswer(aValue).hashValue)
+
+        XCTAssertNotEqual(Question.multipleAnswer(aValue).hashValue,
+                       Question.multipleAnswer(anotherValue).hashValue)
     }
 }

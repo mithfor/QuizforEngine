@@ -15,21 +15,10 @@ public enum Question<T: Hashable>: Hashable {
 
         switch self {
         case .singleAnswer(let value):
-            hasher.combine(value)
+            hasher.combine(value.hashValue ^ "singleAnswer".hashValue)
 
         case .multipleAnswer(let value):
-            hasher.combine(value)
-        }
-    }
-
-    public static func == (lhs: Question<T>, rhs: Question<T>) -> Bool {
-        switch (lhs, rhs) {
-        case ( .singleAnswer(let aValue), .singleAnswer(let bValue) ):
-            return aValue == bValue
-        case ( .multipleAnswer(let aValue), .multipleAnswer(let bValue) ):
-            return aValue == bValue
-        default:
-            return false
+            hasher.combine(value.hashValue ^ "multipleAnswer".hashValue)
         }
     }
 }
