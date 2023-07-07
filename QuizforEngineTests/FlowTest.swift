@@ -50,7 +50,7 @@ class FlowTest: XCTestCase
     func test_startAndAnswerFirstAndSecondQuestion_withThreeQuestions_delegatesToSecondAndThirdQuestionHandling() {
         let sut = makeSUT(questions: ["Q1", "Q2", "Q3"])
         sut.start()
-        
+
         delegate.answerCompletion("A1")
         delegate.answerCompletion("A2")
         
@@ -60,6 +60,7 @@ class FlowTest: XCTestCase
     func test_startAndAnswerFirstQuestion_withOneQuestion_doesNotDelegateToAnotherQuestionHandling() {
         let sut = makeSUT(questions: ["Q1"])
         sut.start()
+
 
         delegate.answerCompletion("A1")
 
@@ -82,15 +83,17 @@ class FlowTest: XCTestCase
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
   
+
         delegate.answerCompletion("A1")
- 
+
+
         XCTAssertNil(delegate.handledResult)
     }
     
     func test_startAndAnswerFirstAndSecondQuestions_withTwoQuestions_delegatesToResultHandling() {
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
-  
+
         delegate.answerCompletion("A1")
         delegate.answerCompletion("A2")
 
