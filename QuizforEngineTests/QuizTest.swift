@@ -42,10 +42,12 @@ class QuizTest: XCTestCase {
 
     private class DelegateSpy: QuizDelegate {
 
+        var handledQuestions: [String] = []
         var handledResult: Result<String, String>? = nil
         var answerCompletion: ((String) -> Void) = { _ in }
 
-        func answer(for: String, completion: @escaping (String) -> Void) {
+        func answer(for question: String, completion: @escaping (String) -> Void) {
+            handledQuestions.append(question)
             self.answerCompletion = completion
         }
 

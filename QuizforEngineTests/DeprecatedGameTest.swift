@@ -1,14 +1,14 @@
+////
+////  GameTest.swift
+////  QuizforEngineTests
+////
+////  Created by Dmitriy Voronin on 29.06.2023.
+////
 //
-//  GameTest.swift
-//  QuizforEngineTests
+//import Foundation
+//import XCTest
+//@testable import QuizforEngine
 //
-//  Created by Dmitriy Voronin on 29.06.2023.
-//
-
-import Foundation
-import XCTest
-@testable import QuizforEngine
-
 //@available(*, deprecated)
 //class DeprecatedGameTest: XCTestCase {
 //    private let router = RouterSpy()
@@ -42,14 +42,14 @@ import XCTest
 //    }
 //
 //    private class RouterSpy: Router {
-//        var routedResult: QuizResult<String, String>? = nil
+//        var routedResult: Result<String, String>? = nil
 //        var answerCallback: ((String) -> Void) = { _ in }
 //
 //        func routeTo(question: String, answerCallback: @escaping (String) -> Void) {
 //            self.answerCallback = answerCallback
 //        }
 //
-//        func routeTo(result: QuizResult<String, String>) {
+//        func routeTo(result: Result<String, String>) {
 //            routedResult = result
 //        }
 //    }

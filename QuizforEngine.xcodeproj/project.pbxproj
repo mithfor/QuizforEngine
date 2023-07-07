@@ -135,8 +135,8 @@
 		88FBE96F2A151D740088F541 /* QuizforEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				884380D02A152016009B786C /* FlowTest.swift */,
 				D3CF792D2A56E5A400D02C35 /* DeprecatedGameTest.swift */,
+				884380D02A152016009B786C /* FlowTest.swift */,
 				D3CF79342A56E85D00D02C35 /* QuizTest.swift */,
 			);
 			path = QuizforEngineTests;
