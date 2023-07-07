@@ -22,7 +22,7 @@ public func startGame<Question: Hashable,
                       Delegate: QuizDelegate>(questions: [Question],
                                  delegate: Delegate,
                                  correctAnswers: [Question: Answer]) -> Game<Delegate> where Delegate.Question == Question, Delegate.Answer ==  Answer {
-    let flow = Flow(questions: questions, delegate: delegate, scoring: { scoring($0, correctAnswers: correctAnswers) })
+    let flow = Flow(questions: questions, delegate: delegate)
     flow.start()
     return Game(flow: flow)
 }
