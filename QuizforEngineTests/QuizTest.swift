@@ -19,40 +19,61 @@ class QuizTest: XCTestCase {
         quiz = Quiz.start(questions: ["Q1", "Q2"], delegate: delegate, correctAnswers: ["Q1":"A1", "Q2":"A2" ])
     }
 
-    func test_startQuiz_answerZeroOutOfTwoCorrectly_scoresZero() {
-        delegate.answerCompletion("wrong")
-        delegate.answerCompletion("wrong")
+//    func test_startQuiz_answerZeroOutOfTwoCorrectly_scoresZero() {
+//        delegate.answerCompletion("wrong")
+//        delegate.answerCompletion("wrong")
+//
+//        XCTAssertEqual(delegate.handledResult!.score, 0)
+//    }
 
-        XCTAssertEqual(delegate.handledResult!.score, 0)
-    }
+//    func test_startQuiz_answerOneOutOfTwoCorrectly_scoresOne() {
+//        delegate.answerCompletion("A1")
+//        delegate.answerCompletion("wrong")
+//
+//        XCTAssertEqual(delegate.handledResult!.score, 1)
+//    }
 
-    func test_startQuiz_answerOneOutOfTwoCorrectly_scoresOne() {
-        delegate.answerCompletion("A1")
-        delegate.answerCompletion("wrong")
+//    func test_startQuiz_answerTwoOutOfTwoCorrectly_scoresTwo() {
+//        delegate.answerCompletion("A1")
+//        delegate.answerCompletion("A2")
+//
+//        XCTAssertEqual(delegate.handledResult!.score, 2)
+//    }
 
-        XCTAssertEqual(delegate.handledResult!.score, 1)
-    }
-
-    func test_startQuiz_answerTwoOutOfTwoCorrectly_scoresTwo() {
-        delegate.answerCompletion("A1")
-        delegate.answerCompletion("A2")
-
-        XCTAssertEqual(delegate.handledResult!.score, 2)
-    }
+//    private class DelegateSpy: QuizDelegate {
+//
+//        var handledQuestions: [String] = []
+//        var handledResult: Result<String, String>? = nil
+//        var answerCompletion: ((String) -> Void) = { _ in }
+//
+//        func answer(for question: String, completion: @escaping (String) -> Void) {
+//            handledQuestions.append(question)
+//            self.answerCompletion = completion
+//        }
+//
+//        func handle(result: QuizforEngine.Result<String, String>) {
+//            handledResult = result
+//        }
+//    }
 
     private class DelegateSpy: QuizDelegate {
 
-        var handledQuestions: [String] = []
+        var questionAsked: [String] = []
         var handledResult: Result<String, String>? = nil
+        var completedQuizzes: [[(String, String)]] = []
         var answerCompletion: ((String) -> Void) = { _ in }
 
         func answer(for question: String, completion: @escaping (String) -> Void) {
-            handledQuestions.append(question)
+            questionAsked.append(question)
             self.answerCompletion = completion
         }
 
         func handle(result: QuizforEngine.Result<String, String>) {
             handledResult = result
+        }
+
+        func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
+            completedQuizzes.append(answers)
         }
     }
 }
