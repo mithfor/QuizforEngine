@@ -44,5 +44,4 @@ class QuizTest: XCTestCase {
             completedQuizzes.append(answers)
         }
     }
-    
 }
