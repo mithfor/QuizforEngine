@@ -52,9 +52,5 @@ final class Flow<Delegate: QuizDelegate>{
             self?.delegateQuestionHandling(after: index)
         }
     }
-
-    private func result() -> Result<Question, Answer> {
-        return Result(answers: answers, score: scoring(answers))
-    }
 }
 
