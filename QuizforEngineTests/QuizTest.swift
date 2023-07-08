@@ -23,18 +23,4 @@ class QuizTest: XCTestCase {
         XCTAssertEqual(delegate.completedQuizzes.count, 1)
         assertEqual(delegate.completedQuizzes[0], [("Q1", "A1"), ("Q2", "A2")])
     }
-
-    private class DelegateSpy: QuizDelegate {
-
-        var completedQuizzes: [[(String, String)]] = []
-        var answerCompletion: ((String) -> Void) = { _ in }
-
-        func answer(for question: String, completion: @escaping (String) -> Void) {
-            self.answerCompletion = completion
-        }
-
-        func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
-            completedQuizzes.append(answers)
-        }
-    }
 }
