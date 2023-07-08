@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(*, deprecated)
+@available(*, deprecated, message: "use Quiz instead")
 public class Game <Delegate: QuizDelegate>{
     let flow: Flow<Delegate>
 
@@ -16,7 +16,7 @@ public class Game <Delegate: QuizDelegate>{
     }
 }
 
-@available(*, deprecated)
+@available(*, deprecated, message: "use Quiz.start instead")
 public func startGame<Question: Hashable,
                       Answer: Equatable,
                       Delegate: QuizDelegate>(questions: [Question],
@@ -27,7 +27,7 @@ public func startGame<Question: Hashable,
     return Game(flow: flow)
 }
 
-@available(*, deprecated)
+@available(*, deprecated, message: "Remove along with the deprecated Game types")
 private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate where R.Answer: Equatable {
 
     private let router: R

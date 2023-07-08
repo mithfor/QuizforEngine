@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(*, deprecated)
+@available(*, deprecated, message: "use QuizDelegate instead")
 public protocol Router {
     associatedtype Question: Hashable
     associatedtype Answer
