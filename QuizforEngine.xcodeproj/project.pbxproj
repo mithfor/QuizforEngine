@@ -11,6 +11,9 @@
 		884380D32A152222009B786C /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884380D22A152222009B786C /* Flow.swift */; };
 		88FBE9662A151D740088F541 /* QuizforEngine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 88FBE9652A151D740088F541 /* QuizforEngine.docc */; };
 		88FBE96C2A151D740088F541 /* QuizforEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FBE9612A151D740088F541 /* QuizforEngine.framework */; };
+		D31D9B812A5945D200628053 /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF79312A56E74900D02C35 /* QuizDelegate.swift */; };
+		D31D9B822A59460900628053 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37941D92A591DCA005773A5 /* DelegateSpy.swift */; };
+		D31D9B832A59463E00628053 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37941D72A591C6D005773A5 /* Assertions.swift */; };
 		D35EFB1C2A4DF1FB00551028 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35EFB1B2A4DF1FB00551028 /* Router.swift */; };
 		D35EFB1E2A4DF21F00551028 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35EFB1D2A4DF21F00551028 /* Result.swift */; };
 		D35EFB222A4DF4E100551028 /* DeprecatedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35EFB212A4DF4E100551028 /* DeprecatedGame.swift */; };
@@ -107,7 +110,6 @@
 		88FBE9572A151D730088F541 = {
 			isa = PBXGroup;
 			children = (
-				D37941D92A591DCA005773A5 /* DelegateSpy.swift */,
 				88FBE9632A151D740088F541 /* QuizforEngine */,
 				88FBE96F2A151D740088F541 /* QuizforEngineTests */,
 				88FBE9622A151D740088F541 /* Products */,
@@ -141,6 +143,7 @@
 		88FBE96F2A151D740088F541 /* QuizforEngineTests */ = {
 			isa = PBXGroup;
 			children = (
+				D37941D92A591DCA005773A5 /* DelegateSpy.swift */,
 				D3CF792D2A56E5A400D02C35 /* DeprecatedGameTest.swift */,
 				884380D02A152016009B786C /* FlowTest.swift */,
 				D3CF79342A56E85D00D02C35 /* QuizTest.swift */,
@@ -367,6 +370,7 @@
 				D35EFB6B2A4E0F9400551028 /* Router.swift in Sources */,
 				D35EFB6D2A4E0F9400551028 /* Result.swift in Sources */,
 				D35EFB6A2A4E0F9400551028 /* DeprecatedGame.swift in Sources */,
+				D31D9B812A5945D200628053 /* QuizDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +380,8 @@
 			files = (
 				D3CF79302A56E5A800D02C35 /* DeprecatedGameTest.swift in Sources */,
 				D35EFB682A4E0F8C00551028 /* FlowTest.swift in Sources */,
+				D31D9B832A59463E00628053 /* Assertions.swift in Sources */,
+				D31D9B822A59460900628053 /* DelegateSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
