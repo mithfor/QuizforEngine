@@ -40,9 +40,9 @@ class QuizTest: XCTestCase {
             self.answerCompletion = completion
         }
 
-        func handle(result: QuizforEngine.Result<String, String>) {}
-
         func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
             completedQuizzes.append(answers)
         }
-    }}
+    }
+    
+}

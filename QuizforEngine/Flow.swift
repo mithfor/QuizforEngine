@@ -23,9 +23,7 @@ final class Flow<Delegate: QuizDelegate>{
     }
     
     func start() {
-
         delegateQuestionHandling(at: questions.startIndex)
-        
     }
 
     private func delegateQuestionHandling(at index: Int) {
