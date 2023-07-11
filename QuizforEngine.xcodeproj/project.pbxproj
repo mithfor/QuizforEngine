@@ -27,6 +27,7 @@
 		D37941DA2A591DCB005773A5 /* DelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37941D92A591DCA005773A5 /* DelegateSpy.swift */; };
 		D3AA72AB2A55BCD100502424 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AA2A55BCD100502424 /* Question.swift */; };
 		D3AA72B12A55CE8800502424 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA72AA2A55BCD100502424 /* Question.swift */; };
+		D3AB10782A5E0D3400301595 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF79362A56ED7400D02C35 /* Quiz.swift */; };
 		D3CF792F2A56E5A800D02C35 /* DeprecatedGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF792D2A56E5A400D02C35 /* DeprecatedGameTest.swift */; };
 		D3CF79302A56E5A800D02C35 /* DeprecatedGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF792D2A56E5A400D02C35 /* DeprecatedGameTest.swift */; };
 		D3CF79322A56E74900D02C35 /* QuizDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF79312A56E74900D02C35 /* QuizDelegate.swift */; };
@@ -363,6 +364,7 @@
 			files = (
 				D3AA72B12A55CE8800502424 /* Question.swift in Sources */,
 				D35EFB6C2A4E0F9400551028 /* Flow.swift in Sources */,
+				D3AB10782A5E0D3400301595 /* Quiz.swift in Sources */,
 				D35EFB6B2A4E0F9400551028 /* Router.swift in Sources */,
 				D35EFB6D2A4E0F9400551028 /* Result.swift in Sources */,
 				D35EFB6A2A4E0F9400551028 /* DeprecatedGame.swift in Sources */,
