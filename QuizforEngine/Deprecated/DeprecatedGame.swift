@@ -8,24 +8,27 @@
 import Foundation
 
 @available(*, deprecated, message: "use Quiz instead")
-public class Game <Delegate: QuizDelegate>{
-    let flow: Flow<Delegate>
+public class Game <Question, Answer, R: Router>{
+    let quiz: Quiz
 
-    init(flow: Flow<Delegate>) {
-        self.flow = flow
+    init(quiz: Quiz) {
+        self.quiz = quiz
     }
 }
 
 @available(*, deprecated, message: "use Quiz.start instead")
 public func startGame<Question: Hashable,
                       Answer: Equatable,
-                      Delegate: QuizDelegate>(questions: [Question],
-                                 delegate: Delegate,
-                                 correctAnswers: [Question: Answer]) -> Game<Delegate> where Delegate.Question == Question, Delegate.Answer ==  Answer {
-    let flow = Flow(questions: questions, delegate: delegate)
-    flow.start()
-    return Game(flow: flow)
+                      R: Router>(questions: [Question],
+                                 router: R,
+                                 correctAnswers: [Question: Answer]) -> Game<Question, Answer, R> where R.Question == Question, R.Answer ==  Answer {
+
+    let adapter = QuizDelegateToRouterAdapter(router, correctAnswers)
+    let quiz = Quiz.start(questions: questions, delegate: adapter)
+
+    return Game(quiz: quiz)
 }
+
 
 @available(*, deprecated, message: "Remove along with the deprecated Game types")
 private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate where R.Answer: Equatable {
