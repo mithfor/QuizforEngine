@@ -15,27 +15,27 @@ class FlowTest: XCTestCase
     func test_start_withNoQuestions_doesNotDElegateToQuestionHandling() {
         makeSUT(questions: []).start()
         
-        XCTAssertTrue(delegate.questionAsked.isEmpty)
+        XCTAssertTrue(dataSource.questionAsked.isEmpty)
     }
     
     func test_start_withOneQuestion_delegatesToCorrectQuestionHandling() {
         makeSUT(questions: ["Q1"]).start()
 
-        XCTAssertEqual(delegate.questionAsked, ["Q1"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q1"])
     }
     
     func test_start_withOneQuestion_delegatesToAnotherCorrectQuestionHandling() {
 
         makeSUT(questions: ["Q2"]).start()
 
-        XCTAssertEqual(delegate.questionAsked, ["Q2"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q2"])
     }
     
     func test_start_withTwoQuestions_delegatesToFirstQuestionHandling() {
 
         makeSUT(questions: ["Q1", "Q2"]).start()
 
-        XCTAssertEqual(delegate.questionAsked, ["Q1"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q1"])
     }
     
     func test_startTwice_withTwoQuestions_delegatesToFirstQuestionTwiceHandling() {
@@ -44,17 +44,17 @@ class FlowTest: XCTestCase
         sut.start()
         sut.start()
 
-        XCTAssertEqual(delegate.questionAsked, ["Q1", "Q1"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q1", "Q1"])
     }
     
     func test_startAndAnswerFirstAndSecondQuestion_withThreeQuestions_delegatesToSecondAndThirdQuestionHandling() {
         let sut = makeSUT(questions: ["Q1", "Q2", "Q3"])
         sut.start()
 
-        delegate.answerCompletion("A1")
-        delegate.answerCompletion("A2")
+        dataSource.answerCompletions[0]("A1")
+        dataSource.answerCompletions[1]("A2")
         
-        XCTAssertEqual(delegate.questionAsked, ["Q1", "Q2", "Q3"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q1", "Q2", "Q3"])
     }
     
     func test_startAndAnswerFirstQuestion_withOneQuestion_doesNotDelegateToAnotherQuestionHandling() {
@@ -62,9 +62,9 @@ class FlowTest: XCTestCase
         sut.start()
 
 
-        delegate.answerCompletion("A1")
+        dataSource.answerCompletions[0]("A1")
 
-        XCTAssertEqual(delegate.questionAsked, ["Q1"])
+        XCTAssertEqual(dataSource.questionAsked, ["Q1"])
     }
 
     func test_start_withOneQuestion_doesCompleteQuiz() {
@@ -84,7 +84,7 @@ class FlowTest: XCTestCase
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
 
-        delegate.answerCompletion("A1")
+        dataSource.answerCompletions[0]("A1")
 
         XCTAssertTrue(delegate.completedQuizzes.isEmpty)    }
     
@@ -92,8 +92,8 @@ class FlowTest: XCTestCase
         let sut = makeSUT(questions: ["Q1", "Q2"])
         sut.start()
 
-        delegate.answerCompletion("A1")
-        delegate.answerCompletion("A2")
+        dataSource.answerCompletions[0]("A1")
+        dataSource.answerCompletions[1]("A2")
 
         XCTAssertEqual(delegate.completedQuizzes.count, 1)
 
@@ -103,8 +103,9 @@ class FlowTest: XCTestCase
     // MARK: - Helpers
 
     private let delegate = DelegateSpy()
+    private let dataSource = DataSourceSpy()
 
-    private weak var weakSUT: Flow<DelegateSpy, DelegateSpy>?
+    private weak var weakSUT: Flow<DelegateSpy, DataSourceSpy>?
 
     override func tearDown() {
         super.tearDown()
@@ -112,9 +113,9 @@ class FlowTest: XCTestCase
         XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT instance is not nil")
     }
     
-    private func makeSUT(questions: [String]) -> Flow<DelegateSpy, DelegateSpy>{
+    private func makeSUT(questions: [String]) -> Flow<DelegateSpy, DataSourceSpy>{
         let sut = Flow(questions: questions,
-                    delegate: delegate, dataSource: delegate)
+                    delegate: delegate, dataSource: dataSource)
         weakSUT = sut
         return sut
     }

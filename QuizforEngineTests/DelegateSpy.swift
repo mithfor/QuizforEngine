@@ -8,18 +8,23 @@
 import Foundation
 import QuizforEngine
 
-class DelegateSpy: QuizDelegate, QuizDataSource {
+class DelegateSpy: QuizDelegate {
 
-    var questionAsked: [String] = []
     var completedQuizzes: [[(String, String)]] = []
-    var answerCompletion: ((String) -> Void) = { _ in }
-
-    func answer(for question: String, completion: @escaping (String) -> Void) {
-        questionAsked.append(question)
-        self.answerCompletion = completion
-    }
 
     func didCompleteQuiz(withAnswers answers: [(question: String, answer: String)]) {
         completedQuizzes.append(answers)
     }
 }
+
+class DataSourceSpy: QuizDataSource {
+
+    var questionAsked: [String] = []
+    var answerCompletions: [((String) -> Void)] = []
+
+    func answer(for question: String, completion: @escaping (String) -> Void) {
+        questionAsked.append(question)
+        self.answerCompletions.append(completion)
+    }
+}
+

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Flow<Delegate: QuizDelegate, DataSource: QuizDataSource> where Delegate.Question == DataSource.Question, Delegate.Answer == DataSource.Answer{
+final class Flow<Delegate: QuizDelegate, DataSource: QuizDataSource> where Delegate.Question == DataSource.Question, Delegate.Answer == DataSource.Answer {
 
     typealias Question = Delegate.Question
     typealias Answer = Delegate.Answer
