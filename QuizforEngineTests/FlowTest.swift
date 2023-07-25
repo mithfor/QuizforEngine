@@ -104,7 +104,7 @@ class FlowTest: XCTestCase
 
     private let delegate = DelegateSpy()
 
-    private weak var weakSUT: Flow<DelegateSpy, DelegateSpy>?
+    private weak var weakSUT: Flow<DelegateSpy>?
 
     override func tearDown() {
         super.tearDown()
@@ -112,9 +112,9 @@ class FlowTest: XCTestCase
         XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT instance is not nil")
     }
     
-    private func makeSUT(questions: [String]) -> Flow<DelegateSpy, DelegateSpy>{
+    private func makeSUT(questions: [String]) -> Flow<DelegateSpy>{
         let sut = Flow(questions: questions,
-                    delegate: delegate, dataSource: delegate)
+                    delegate: delegate)
         weakSUT = sut
         return sut
     }

@@ -8,7 +8,7 @@
 import Foundation
 import QuizforEngine
 
-class DelegateSpy: QuizDelegate, QuizDataSource {
+class DelegateSpy: QuizDelegate {
 
     var questionAsked: [String] = []
     var completedQuizzes: [[(String, String)]] = []
