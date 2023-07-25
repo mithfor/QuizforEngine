@@ -112,7 +112,7 @@ class FlowTest: XCTestCase
 
         XCTAssertNil(weakSUT, "Memory leak detected. Weak reference to the SUT instance is not nil")
     }
-    
+
     private func makeSUT(questions: [String]) -> Flow<DelegateSpy, DataSourceSpy>{
         let sut = Flow(questions: questions,
                     delegate: delegate, dataSource: dataSource)
