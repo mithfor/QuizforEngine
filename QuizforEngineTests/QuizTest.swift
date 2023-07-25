@@ -16,7 +16,7 @@ class QuizTest: XCTestCase {
 
         let delegate = DelegateSpy()
 
-        quiz = Quiz.start(questions: ["Q1", "Q2"], delegate: delegate)
+        quiz = Quiz.start(questions: ["Q1", "Q2"], delegate: delegate, dataSource: delegate)
         delegate.answerCompletion("A1")
         delegate.answerCompletion("A2")
 
