@@ -23,15 +23,16 @@ public func startGame<Question: Hashable,
                                  router: R,
                                  correctAnswers: [Question: Answer]) -> Game<Question, Answer, R> where R.Question == Question, R.Answer ==  Answer {
 
-    let adapter = QuizDelegateToRouterAdapter(router, correctAnswers)
-    let quiz = Quiz.start(questions: questions, delegate: adapter, dataSource: adapter)
+    let delegateAdapter = QuizDelegateToRouterAdapter(router, correctAnswers)
+    let dataSourceAdapter = QuizDataSourceToRouterAdapter(router, correctAnswers)
+    let quiz = Quiz.start(questions: questions, delegate: delegateAdapter, dataSource: dataSourceAdapter)
 
     return Game(quiz: quiz)
 }
 
 
 @available(*, deprecated, message: "Remove along with the deprecated Game types")
-private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate & QuizDataSource where R.Answer: Equatable {
+private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate where R.Answer: Equatable {
 
     private let router: R
     private let correctAnswers: [R.Question: R.Answer]
@@ -39,10 +40,6 @@ private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate & QuizDataSou
     init(_ router: R, _ correctAnswers: [R.Question : R.Answer]) {
         self.router = router
         self.correctAnswers = correctAnswers
-    }
-
-    func answer(for question: R.Question, completion: @escaping (R.Answer) -> Void) {
-        router.routeTo(question: question, answerCallback: completion)
     }
 
     func didCompleteQuiz(withAnswers answers: [(question: R.Question, answer: R.Answer)]) {
@@ -63,5 +60,29 @@ private class QuizDelegateToRouterAdapter<R: Router>: QuizDelegate & QuizDataSou
         }
     }
 }
+
+@available(*, deprecated, message: "Remove along with the deprecated Game types")
+private class QuizDataSourceToRouterAdapter<R: Router>: QuizDataSource where R.Answer: Equatable {
+
+    private let router: R
+    private let correctAnswers: [R.Question: R.Answer]
+
+    init(_ router: R, _ correctAnswers: [R.Question : R.Answer]) {
+        self.router = router
+        self.correctAnswers = correctAnswers
+    }
+
+    func answer(for question: R.Question, completion: @escaping (R.Answer) -> Void) {
+        router.routeTo(question: question, answerCallback: completion)
+    }
+
+
+    private func scoring(_ answers: [R.Question: R.Answer], correctAnswers: [R.Question: R.Answer]) -> Int {
+        return answers.reduce(0) { (score, tuple) in
+            return score + (correctAnswers[tuple.key] == tuple.value ? 1 : 0)
+        }
+    }
+}
+
 
 
