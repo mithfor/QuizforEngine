@@ -34,6 +34,7 @@
 		D3CF79352A56E85D00D02C35 /* QuizTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF79342A56E85D00D02C35 /* QuizTest.swift */; };
 		D3CF79372A56ED7400D02C35 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CF79362A56ED7400D02C35 /* Quiz.swift */; };
 		D3E693892A6F9BCB00A75C7A /* QuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E693882A6F9BCB00A75C7A /* QuizDataSource.swift */; };
+		D3E6938A2A6F9DCC00A75C7A /* QuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E693882A6F9BCB00A75C7A /* QuizDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +112,6 @@
 		88FBE9572A151D730088F541 = {
 			isa = PBXGroup;
 			children = (
-				D3E693882A6F9BCB00A75C7A /* QuizDataSource.swift */,
 				88FBE9632A151D740088F541 /* QuizforEngine */,
 				88FBE96F2A151D740088F541 /* QuizforEngineTests */,
 				88FBE9622A151D740088F541 /* Products */,
@@ -137,6 +137,7 @@
 				884380D22A152222009B786C /* Flow.swift */,
 				D3AA72AA2A55BCD100502424 /* Question.swift */,
 				D3CF79312A56E74900D02C35 /* QuizDelegate.swift */,
+				D3E693882A6F9BCB00A75C7A /* QuizDataSource.swift */,
 				D3CF79362A56ED7400D02C35 /* Quiz.swift */,
 			);
 			path = QuizforEngine;
@@ -369,6 +370,7 @@
 				D3AA72B12A55CE8800502424 /* Question.swift in Sources */,
 				D35EFB6C2A4E0F9400551028 /* Flow.swift in Sources */,
 				D3AB10782A5E0D3400301595 /* Quiz.swift in Sources */,
+				D3E6938A2A6F9DCC00A75C7A /* QuizDataSource.swift in Sources */,
 				D35EFB6B2A4E0F9400551028 /* Router.swift in Sources */,
 				D35EFB6D2A4E0F9400551028 /* Result.swift in Sources */,
 				D35EFB6A2A4E0F9400551028 /* DeprecatedGame.swift in Sources */,
